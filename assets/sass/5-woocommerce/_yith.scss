@@ -1,0 +1,65 @@
+.yith-wcan-filters {
+  .yith-wcan-filter {
+    h4 {
+      font-size: 18px;
+    }
+    .filter-items {
+      .filter-item {
+        &.active {
+          > label {
+            > a {
+              color: $main-colour;
+            }
+          }
+          > a {
+            color: $main-colour;
+          }
+        }
+        > label {
+          > a {
+            &:hover {
+              color: $main-colour;
+            }
+          }
+        }
+        > a {
+          &:hover {
+            color: $main-colour;
+          }
+        }
+
+        label {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          input {
+            appearance: none;
+          }
+          input:checked + a {
+            &:before {
+              content: "\f14a";
+            }
+          }
+          a {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            &:before {
+              content: "\f0c8";
+              font-family: 'Font Awesome 5 Pro';
+              color: black;
+              margin-right: 5px;
+            }
+
+            .yith-wcan-tooltip {
+              background-color: $main-colour;
+              &:before {
+                border-right-color: $main-colour;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

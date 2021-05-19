@@ -1,0 +1,14 @@
+@media screen{
+	body, html{
+    position: relative;
+    a {
+      text-decoration: none;
+      transition: .3s ease-in-out;
+      color: $main-colour;
+      &:hover {
+        text-decoration: none;
+        color: $secondary-colour;
+      }
+    }
+  }
+}

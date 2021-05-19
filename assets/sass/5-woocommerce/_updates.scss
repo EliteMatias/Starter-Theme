@@ -1,0 +1,141 @@
+.woocommerce {
+	#wc_gc_cart_redeem_form {
+		display: flex;
+		width: 100%;
+		#wc_gc_cart_code {
+			font-size: 12px;
+			// font-family: $sofia;
+			font-weight: 400;
+			// height: 40px;
+			line-height: 40px;
+			padding: 0 15px;
+			appearance: none;
+			border-radius: 0;
+			background: none;
+			color: $main-colour;
+			border: 1px solid #b3b3b3;
+			outline: none;
+			transition: border .4s ease-in-out;
+			&:focus {
+				border-left-color: $main-colour;
+				border-top-color: $main-colour;
+				border-bottom-color: $main-colour;
+			}
+			&::placeholder {
+				opacity: 1;
+			}
+			flex-grow: 1;
+		}
+		#wc_gc_cart_redeem_send {
+			display: inline-block;
+			text-decoration: none;
+			// font-family: $oswald;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: normal;
+			text-align: center;
+			padding: 8px 15px;
+			text-transform: uppercase;
+			background: $main-colour;
+			border: 2px solid $main-colour;
+			color: #fff;
+			outline: none;
+			letter-spacing: 0.7px;
+			transition: all .4s ease-in-out;
+			&:hover {
+				background: #fff;
+				color: $main-colour;
+			}
+		}
+	}
+	.woocommerce_gc_giftcard_form {
+		input,
+		textarea {
+			font-size: 12px;
+			// font-family: $sofia;
+			font-weight: 400;
+			// height: 40px;
+			line-height: 40px;
+			padding: 0 15px;
+			appearance: none;
+			border-radius: 0;
+			background: none;
+			color: $main-colour;
+			border: 1px solid #b3b3b3;
+			outline: none;
+			transition: border .4s ease-in-out;
+			&:focus {
+				border-left-color: $main-colour;
+				border-top-color: $main-colour;
+				border-bottom-color: $main-colour;
+			}
+			&::placeholder {
+				opacity: 1;
+			}
+		}
+		textarea {
+			width: 100%;
+		}
+	}
+	#shipping_method {
+		li {
+			display: flex;
+			align-items: center;
+			margin-bottom: 8px;
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+			input {
+				margin: 0;
+			}
+			label {
+				margin: 0;
+			}
+		}
+	}
+	.gtw-product-gift-wrapper-enable-field {
+		display: flex;
+		align-items: center;
+		label {
+			margin-right: 0;
+			order: 2;
+			float: none;
+		}
+		input {
+			margin-right: 10px;
+			order: 1;
+			float: none;
+		}
+	}
+	.woocommerce-checkout-payment {
+		.form-row {
+			flex-direction: column;
+			#wc_gc_cart_redeem_form {
+				#wc_gc_cart_code {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}
+
+.custom-orderby {
+	border: 1px solid $main-colour;
+	background-color: #fff;
+}
+
+.selected-option {
+	border-bottom: none !important;
+	&:after {
+		content: "\f150";
+		font-family: 'Font Awesome 5 Pro';
+		color: $main-colour;
+		margin-left: 5px;
+		font-weight: 500;
+	}
+	&.active {
+		&:after {
+			content: "\f151";
+		}
+	}
+}

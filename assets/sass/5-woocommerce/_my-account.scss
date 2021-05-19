@@ -1,0 +1,102 @@
+@media screen {
+  .woocommerce-account .woocommerce-MyAccount-navigation {
+    background: #484848;
+    margin-bottom: 25px;
+    width: 100%;
+    float: none;
+    @media (min-width: 992px) {
+      width: 30%;
+      float: left;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        display: block;
+        margin: 0;
+        &:not(:last-child) {
+          border-bottom: 1px solid #fff;
+        }
+        &.is-active a {
+          background: $main-colour;
+        }
+        a {
+          display: block;
+          background: #606060;
+          padding: 10px 15px;
+          line-height: normal;
+          // font-family: $sofia;
+          font-weight: 500;
+          color: #fff;
+          font-size: 15px;
+          text-decoration: none;
+          &:hover {
+            background: $main-colour;
+          }
+        }
+      }
+    }
+  }
+
+
+  .woocommerce .woocommerce-customer-details,
+  .woocommerce .woocommerce-order-details,
+  .woocommerce .woocommerce-order-downloads {
+    color: $main-colour;
+    margin-bottom: 20px;
+    .woocommerce-column__title,
+    .woocommerce-order-details__title,
+    .woocommerce-order-downloads__title {
+      color: $main-colour;
+      font-size: 18px;
+      text-transform: uppercase;
+      // font-family: $sofia;
+      font-weight: 700;
+      line-height: normal;
+      margin-bottom: 12px;
+    }
+    .woocommerce-columns {
+      .woocommerce-column {
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  .woocommerce .woocommerce-customer-details address {
+    border-radius: 0;
+    border: 1px solid $main-colour;
+    padding: 15px;
+    line-height: 1.5;
+  }
+
+  .woocommerce-account .woocommerce-MyAccount-content {
+    width: 100%;
+    float: none;
+    color: $main-colour;
+    @media (min-width: 992px) {
+      width: 70%;
+      padding-left: 30px;
+      float: right;
+    }
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    > *:last-child {
+      margin-bottom: 0;
+    }
+    table,
+    table.shop_table {
+      margin-bottom: 15px;
+    }
+    .edit-account {
+      legend {
+        font-size: 18px;
+      }
+    }
+  }
+}
