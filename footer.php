@@ -1,11 +1,17 @@
 	</main>
+
+	<!-- VARIABLES -->
+	<?php
+		$copyright = get_theme_mod( 'copyright' );
+	?>
+
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<div class="copyright-text">
 						<!-- DON'T REMOVE THE PHP DATE / AUTO UPDATE PER YEAR -->
-						&copy; <?php echo date('Y'); ?> <?php echo get_theme_mod( 'copyright' ); ?>. Website by <a href="https://clickclick.media/" target="_blank">Click Click Media</a>
+						<p>Copyright &copy; <?php echo date('Y'); ?> <?php echo $copyright ? $copyright : "All rights reserved."; ?></p>
 					</div>
 				</div>
 			</div>
@@ -17,9 +23,9 @@
 		$modalForm        = get_theme_mod( 'modal_form' );
 		$modalTitle       = get_theme_mod( 'modal_title' );
 		$modalDescription = get_theme_mod( 'modal_description' );
-
-		if ( $modalForm ) {
 	?>
+
+	<?php if ( $modalForm ): ?>
 		<div class="modal fade" id="contactModal">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
@@ -36,7 +42,7 @@
 				</div>
 			</div>
 		</div>
-	<?php } ?>
+	<?php endif; ?>
 
 	<?php wp_footer(); ?>
 </body>
