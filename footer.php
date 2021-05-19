@@ -31,12 +31,12 @@
 				<div class="modal-content">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<div class="modal-body">
-						<?php if ( $modalTitle ) { ?>
+						<?php if ( $modalTitle ): ?>
 							<h3 class="modal-title"><?php echo $modalTitle; ?></h3>
-						<?php } ?>
-						<?php if ( $modalDescription ) { ?>
+						<?php endif; ?>
+						<?php if ( $modalDescription ): ?>
 							<p class="modal-description"><?php echo $modalDescription; ?></p>
-						<?php } ?>
+						<?php endif; ?>
 						<?php echo do_shortcode( $modalForm ); ?>
 					</div>
 				</div>
