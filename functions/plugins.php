@@ -57,21 +57,23 @@ add_filter( 'gform_tabindex', '__return_false' );
 add_filter( 'gform_confirmation_anchor', '__return_false' );
 
 // GRAVITY FORMS ASYNC ISSUE FIX
-add_filter( 'gform_cdata_open', function( $content = "" ){
-    $content = 'document.addEventListener( "DOMContentLoaded", function() { ';
-    return $content;
+add_filter( 'gform_cdata_open', function( $content = "" ) {
+	$content = 'document.addEventListener( "DOMContentLoaded", function() { ';
+	return $content;
 } );
-add_filter( 'gform_cdata_close', function( $content = "" ){
-    $content = ' }, false );';
-    return $content;
+
+add_filter( 'gform_cdata_close', function( $content = "" ) {
+	$content = ' }, false );';
+	return $content;
 } );
-add_filter( 'gform_confirmation', function( $confirmation, $form, $entry, $ajax ){
-    if ( $ajax && $form['confirmation']['type'] == 'page' ) {
-        $confirmation = "<script>function gformRedirect(){document.location.href='" . get_permalink($form['confirmation']['pageId']) . "';}</script>";
-    } elseif ( $ajax && $form['confirmation']['type'] == 'redirect' ) {
-        $confirmation = "<script>function gformRedirect(){document.location.href='" . $form['confirmation']['url'] . "';}</script>";
-    }
-    return $confirmation;
+
+add_filter( 'gform_confirmation', function( $confirmation, $form, $entry, $ajax ) {
+	if ( $ajax && $form['confirmation']['type'] == 'page' ) {
+		$confirmation = "<script>function gformRedirect(){document.location.href='" . get_permalink($form['confirmation']['pageId']) . "';}</script>";
+	} elseif ( $ajax && $form['confirmation']['type'] == 'redirect' ) {
+		$confirmation = "<script>function gformRedirect(){document.location.href='" . $form['confirmation']['url'] . "';}</script>";
+	}
+	return $confirmation;
 }, 10, 4);
 
 // FORCE GFORM SCRIPTS TO THE FOOTER
