@@ -71,7 +71,7 @@ add_action( 'after_setup_theme', function(){
 } );
 
 // DISABLE & REMOVE WORDPRESS EMOJIS
-add_action( 'init', function(){
+add_action( 'init', function() {
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 	remove_action( 'wp_print_styles', 'print_emoji_styles' );
@@ -81,12 +81,12 @@ add_action( 'init', function(){
 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 
 	// REMOVE TINYMCE EMOJI PLUGIN
-	add_filter( 'tiny_mce_plugins', function( $plugins ){
+	add_filter( 'tiny_mce_plugins', function( $plugins ) {
 		return is_array( $plugins ) ? array_diff( $plugins, array( 'wpemoji' ) ) : array();
 	} );
 
 	// REMOVE EMOJI CDN HOSTNAME FROM DNS PREFETCHING HINTS
-	add_filter( 'wp_resource_hints', function( $urls, $relation_type  ){
+	add_filter( 'wp_resource_hints', function( $urls, $relation_type ) {
 		if ( 'dns-prefetch' == $relation_type ) {
 			$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
 			$urls = array_diff( $urls, array( $emoji_svg_url ) );
@@ -96,7 +96,7 @@ add_action( 'init', function(){
 } );
 
 // ADD ALT TEXT TO IMAGE ON UPLOAD
-add_action( 'add_attachment', function( $post_ID ){
+add_action( 'add_attachment', function( $post_ID ) {
 	if ( wp_attachment_is_image( $post_ID ) ) {
 		$my_image_title = get_post( $post_ID )->post_title;
 		$my_image_title = preg_replace( '%\s*[-_\s]+\s*%', ' ',  $my_image_title );
@@ -111,7 +111,7 @@ add_action( 'add_attachment', function( $post_ID ){
 } );
 
 // SEARCH REDIRECT TO HOME IF BLANK
-add_filter( 'request', function( $query_vars ){
+add_filter( 'request', function( $query_vars ) {
 	if( isset( $_GET['s'] ) && $_GET['s'] == '' && !is_admin() ) {
 		wp_redirect( site_url() );
 		exit;
@@ -120,7 +120,7 @@ add_filter( 'request', function( $query_vars ){
 } );
 
 // MEDIA UPLOAD SVG SUPPORT
-add_action( 'upload_mimes', function( $file_types ){
+add_action( 'upload_mimes', function( $file_types ) {
 	$new_filetypes = array();
 	$new_filetypes['svg'] = 'image/svg+xml';
 	$file_types = array_merge($file_types, $new_filetypes );
@@ -128,21 +128,21 @@ add_action( 'upload_mimes', function( $file_types ){
 } );
 
 // ADD BOOTSTRAP IMAGE CLASS TO WP THUMBNAILS
-add_filter( 'wp_get_attachment_image_attributes', function( $attr ){
+add_filter( 'wp_get_attachment_image_attributes', function( $attr ) {
 	remove_filter('wp_get_attachment_image_attributes','add_class_thumbnail');
 	$attr['class'] .= ' img-fluid';
 	return $attr;
 } );
 
 // HOOK TO WP_HEAD
-add_action( 'wp_head', function(){
+add_action( 'wp_head', function() {
 	$tag_manager      = get_theme_mod( 'tag_manager' );
 	$google_analytics = get_theme_mod( 'analytics' );
 	$tracking_code    = get_theme_mod( 'tracking_code' );
 	$tracking_num     = get_theme_mod( 'tracking_number' );
 	$custom_css       = get_theme_mod( 'css_code' );
 ?>
-	<?php if ( $tag_manager ){ ?>
+	<?php if ( $tag_manager ) { ?>
 		<!-- TAG MANAGER -->
 		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -151,13 +151,13 @@ add_action( 'wp_head', function(){
 		})(window,document,'script','dataLayer','<?php echo $tag_manager; ?>');</script>
 	<?php } ?>
 
-	<?php if ( $tracking_code && $tracking_num ){ ?>
+	<?php if ( $tracking_code && $tracking_num ) { ?>
 		<!-- GOOGLE TRACKING OPTION -->
 		<script>(function(a,e,c,f,g,b,d){var h={ak:"<?php echo $tracking_num; ?>",cl:"<?php echo $tracking_code; ?>"};a[c]=a[c]||function(){(a[c].q=a[c].q||[]).push(arguments)};a[f]||(a[f]=h.ak);b=e.createElement(g);b.async=1;b.src="//www.gstatic.com/wcm/loader.js";d=e.getElementsByTagName(g)[0];d.parentNode.insertBefore(b,d);a._googWcmGet=function(b,d,e){a[c](2,b,h,d,null,new Date,e)}})(window,document,"_googWcmImpl","_googWcmAk","script");
 		</script>
 	<?php } ?>
 
-	<?php if ( $google_analytics ){ ?>
+	<?php if ( $google_analytics ) { ?>
 		<!-- GOOGLE ANALYTICS -->
 		<script>
 			var _gaq = _gaq || [];
@@ -171,7 +171,7 @@ add_action( 'wp_head', function(){
 		</script>
 	<?php } ?>
 
-	<?php if ( $custom_css ){ ?>
+	<?php if ( $custom_css ) { ?>
 		<!-- css -->
 		<style>
 			<?php echo $custom_css; ?>
@@ -181,17 +181,17 @@ add_action( 'wp_head', function(){
 } );
 
 // AFTER OPENING BODY TAG
-add_action( "after_body_tag", function(){ ?>
-	<?php if ( get_theme_mod( 'tag_manager' ) ){ ?>
+add_action( "after_body_tag", function() { ?>
+	<?php if ( get_theme_mod( 'tag_manager' ) ) { ?>
 		<!-- TAG MANAGER -->
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo get_theme_mod( 'tag_manager' ); ?>" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<?php } ?>
 <?php } ); // after_body_tag end
 
 // HOOK TO WP_FOOTER
-add_action( "wp_footer", function(){ ?>
+add_action( "wp_footer", function() { ?>
 	<!-- CUSTOM JS -->
-	<?php if ( get_theme_mod( 'js_code' ) ){ ?>
+	<?php if ( get_theme_mod( 'js_code' ) ) { ?>
 		<script><?php echo get_theme_mod( 'js_code' ); ?></script>
 	<?php } ?>
 <?php } ); // wp_footer end
@@ -207,7 +207,7 @@ function my_login_logo() {
 ?>
 	<style>
 		#login h1 a,
-		body.login h1 a{
+		body.login h1 a {
 			outline: 0;
 			background-image: url(<?php echo $logo['url']; ?>);
 			height: 65px;
@@ -220,7 +220,7 @@ function my_login_logo() {
 		}
 	</style>
 <?php
-	if($login_button_bg || $login_button_color){
+	if ($login_button_bg || $login_button_color) {
 ?>
 	<style>
 		body.login #wp-submit{
@@ -233,16 +233,16 @@ function my_login_logo() {
 	</style>
 <?php
 	}
-	if($login_page_bg){
+	if($login_page_bg) {
 ?>
 	<style>
-		body.login{
+		body.login {
 			background-color: <?php echo $login_page_bg; ?>;
 		}
 	</style>
 <?php
 	}
-	if($login_form_bg){
+	if($login_form_bg) {
 ?>
 	<style>
 		body.login #loginform{
@@ -266,3 +266,25 @@ add_filter( 'body_class', function( $classes ) {
 		return $classes;
 	}
 } );
+
+// Remove Shortlink
+function remove_redundant_shortlink() {
+	remove_action('wp_head', 'wp_shortlink_wp_head', 10);
+	remove_action( 'template_redirect', 'wp_shortlink_header', 11);
+}
+add_filter('after_setup_theme', 'remove_redundant_shortlink');
+
+// Remove Feed
+remove_action('wp_head', 'feed_links', 2 );
+add_filter('post_comments_feed_link',function () { return null;});
+
+function custom_disable_feed() {
+	wp_die( __( 'No feed available, please visit the homepage!' ) );
+}
+add_action('do_feed', 'custom_disable_feed', 1);
+add_action('do_feed_rdf', 'custom_disable_feed', 1);
+add_action('do_feed_rss', 'custom_disable_feed', 1);
+add_action('do_feed_rss2', 'custom_disable_feed', 1);
+add_action('do_feed_atom', 'custom_disable_feed', 1);
+add_action('do_feed_rss2_comments', 'custom_disable_feed', 1);
+add_action('do_feed_atom_comments', 'custom_disable_feed', 1);
