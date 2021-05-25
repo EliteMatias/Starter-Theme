@@ -8,6 +8,11 @@ if (!is_plugin_active('kirki/kirki.php')) {
 	}
 }
 
+// CARBON FIELDS
+if (is_plugin_active('carbon-fields/carbon-fields-plugin.php')) {
+	locate_template( 'functions/carbon-fields.php', TRUE, TRUE );
+}
+
 // WP CUSTOMIZER
 locate_template( "functions/customizer.php", TRUE, TRUE );
 
