@@ -1,6 +1,6 @@
 <?php
 // ENQUEUE SCRIPTS & STYLES
-add_action( 'wp_enqueue_scripts', function(){
+add_action( 'wp_enqueue_scripts', function() {
 	// DEREGISTER DEFAULT WORDPRESS JQUERY FILE
 	// wp_deregister_script( 'jquery' );
 

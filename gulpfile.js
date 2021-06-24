@@ -16,6 +16,6 @@ gulp.task( "sass", function() {
     .pipe( gulp.dest( "assets/css" ) )
 } );
 
-gulp.task( "watch", function(){
+gulp.task( "watch", function() {
 	gulp.watch( "assets/sass/**/*.scss", gulp.series( "sass" ) );
 } );

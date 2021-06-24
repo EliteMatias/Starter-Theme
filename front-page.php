@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
 <style>
 	.slider .slide-item.tns-item{
 		color: white;
