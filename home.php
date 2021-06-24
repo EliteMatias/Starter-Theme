@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="archive-wrapper">
+<div class="archive-wrapper archive-post">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">

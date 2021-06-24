@@ -1,6 +1,10 @@
 <?php get_header(); ?>
 
-<div class="archive-wrapper">
+<?php
+	$post_type = get_queried_object()->post_type;
+?>
+
+<div class="archive-wrapper archive-<?= $post_type; ?>">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
