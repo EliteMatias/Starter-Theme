@@ -1,4 +1,9 @@
 footer {
   padding: 15px 0;
   border-top: 1px solid #aeaeae;
+  .copyright-text {
+    p {
+      margin-bottom: 0;
+    }
+  }
 }
