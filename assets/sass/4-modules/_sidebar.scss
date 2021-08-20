@@ -212,6 +212,11 @@
 // Updates
 .page-sidebar {
   .widget {
+    border-bottom: 1px solid #aeaeae;
+    padding-bottom: 30px;
+    &:last-of-type {
+      border-bottom: none;
+    }
     &.widget_recent_entries {
       ul {
         li {

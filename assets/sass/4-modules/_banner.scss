@@ -1,0 +1,12 @@
+.banner {
+  background-color: $main-colour;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 15px 0;
+  &.generic {
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+}

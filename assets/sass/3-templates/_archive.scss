@@ -19,6 +19,7 @@
             transition: 0.3s;
             &:hover {
               text-decoration: none;
+              color: $secondary-colour;
             }
           }
         }
@@ -95,13 +96,23 @@
       @media (min-width: 1200px) {
         width: calc(33.33% - 16px);
       }
-      .featured-image-bg {
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        height: 250px;
-        width: 100%;
+      .featured-image-link {
         margin-bottom: 8px;
+        overflow: hidden;
+        width: 100%;
+        .featured-image-bg {
+          transition: 0.3s all;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          height: 250px;
+          width: 100%;
+        }
+        &:hover {
+          .featured-image-bg {
+            transform: scale(1.1);
+          }
+        }
       }
       .content {
         flex-grow: 1;

@@ -20,8 +20,10 @@
 							?>
 							<div class="post-item text-center text-lg-left">
 								<?php if( $featuredImage ): ?>
-									<img src='<?php echo $featuredImage; ?>' alt='<?php echo get_the_title(); ?>' class='img-fluid featured-image d-none' />
-									<div class="featured-image-bg" style="background-image: url('<?php echo $featuredImage; ?>');"></div>
+									<a href="<?= get_the_permalink(); ?>" class="featured-image-link">
+										<img src='<?php echo $featuredImage; ?>' alt='<?php echo get_the_title(); ?>' class='img-fluid featured-image d-none' />
+										<div class="featured-image-bg" style="background-image: url('<?php echo $featuredImage; ?>');"></div>
+									</a>
 								<?php endif; ?>
 
 								<div class="content">

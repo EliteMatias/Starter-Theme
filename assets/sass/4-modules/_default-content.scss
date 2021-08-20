@@ -1,61 +1,17 @@
-@media screen{
-  .default-content{
-    h1, h2, h3, h4, h5, h6{
-      font-weight: bold;
-      margin: 0 0 20px;
-    }
-    h1{font-size: 32px;}
-    h2{font-size: 28px;}
-    h3{font-size: 24px;}
-    h4{font-size: 22px;}
-    h5{font-size: 20px;}
-    h6{font-size: 18px;}
-    ul, ol{
-      padding: 0 0 0 35px;
-      margin: 0 0 20px;
-      li{
-        font-size: 16px;
-        font-weight: normal;
-      }
-    }
-    blockquote{
-      border-left: 5px solid $main-colour;
-      background-color: #ededed;
-      padding: 20px;
-      margin: 0 0 20px;
-      cite{
-        font-style: normal;
-        font-weight: bold;
-        margin-top: 15px;
-        display: inline-block;
-      }
-      p{
-        &:last-of-type{
-          margin: 0;
-        }
-      }
-    }
-    .wp-block-gallery{
-      .blocks-gallery-grid{
+@media screen { 
+  .default-content {
+    .wp-block-gallery {
+      .blocks-gallery-grid {
         padding: 0;
         margin: 0;
       }
     }
-    .wp-block-cover{
-      .wp-block-cover__inner-container{
-        p{
+    .wp-block-cover {
+      .wp-block-cover__inner-container {
+        p {
           font-weight: bold;
           font-size: 24px;
         }
-      }
-    }
-    p{
-      margin: 0 0 20px;
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 30px;
-      a{
-        color: $main-colour;
       }
     }
   }

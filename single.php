@@ -26,7 +26,7 @@
 					<div class="post-author">
 						Posted<?php echo $author ? " by <strong>" . $author . "</strong>" : ""; ?><?php echo $category ? " in <strong>" . $parentCategory . "</strong>" : ""; ?>
 					</div>
-					<div class="post-content default-content">
+					<div class="post-content">
 						<?php the_content(); ?>
 					</div>
 				</div>

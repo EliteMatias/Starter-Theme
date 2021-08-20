@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php get_template_part( 'inc/banner' ); ?>
+
 <?php get_template_part( 'inc/breadcrumbs' ); ?>
 
 <?php
@@ -26,7 +28,7 @@
 					<div class="post-author">
 						Posted<?php echo $author ? " by <strong>" . $author . "</strong>" : ""; ?><?php echo $category ? " in <strong>" . $parentCategory . "</strong>" : ""; ?>
 					</div>
-					<div class="post-content default-content">
+					<div class="post-content">
 						<?php the_content(); ?>
 					</div>
 				</div>
